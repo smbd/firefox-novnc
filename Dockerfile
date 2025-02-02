@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 FROM debian:bookworm-slim
 
-MAINTAINER Mitsuru Shimamura <smbd.jp@gmail.com>
+LABEL org.opencontainers.image.authors="Mitsuru Shimamura <smbd.jp@gmail.com>"
 
 RUN apt-get update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
@@ -10,8 +10,8 @@ RUN apt-get update \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
-ENV LANGUAGE ja_JP.UTF-8
-ENV LANG ja_JP.UTF-8
+ENV LANGUAGE=ja_JP.UTF-8
+ENV LANG=ja_JP.UTF-8
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
