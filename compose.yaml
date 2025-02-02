@@ -1,0 +1,20 @@
+services:
+  firefox:
+    image: firefox-novnc:latest
+    environment:
+      TZ: 'Asia/Tokyo'
+      LANGUAGE: 'ja_JP.UTF-8'
+      LANG: 'ja_JP.UTF-8'
+      VIRTUAL_HOST: 'oci.smbd.jp'
+      VIRTUAL_PROTO: 'http'
+      VIRTUAL_PATH: '/novnc/'
+      VIRTUAL_DEST: '/'
+    expose:
+      - "80"
+    ports:
+      - "8888:80"
+
+networks:
+  default:
+    name: external_network
+    external: true
