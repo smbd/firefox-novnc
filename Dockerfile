@@ -3,7 +3,7 @@ FROM debian:bookworm-slim
 
 LABEL org.opencontainers.image.authors="Mitsuru Shimamura <smbd.jp@gmail.com>"
 
-RUN apt-get update \
+RUN apt-get -qq update \
   && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y \
     tini ca-certificates tigervnc-standalone-server tigervnc-tools novnc websockify \
     firefox-esr fonts-noto-cjk \
